@@ -35,9 +35,21 @@ const updateTodoById = async (id, data) => {
     }
 };
 
+const deleteTodoById = async (id) => {
+    try {
+        const deleteTodo = await Todos.destroy({
+            where: { id },
+          });
+          return getAllTodos();
+    } catch (error) {
+        throw error;
+    }
+};
+
 module.exports = {
     getAllTodos,
     insertTodos,
     updateTodoById,
-    getTodoById
+    getTodoById,
+    deleteTodoById
 }

@@ -39,11 +39,22 @@ const getTodoById = async (req, res) => {
     }
 };
 
+const deleteTodoById = async (req, res) => {
+    try {
+        const { id } = req.body;
+        const deleteTodoById = await TodoService.deleteTodoById(id);
+        res.send(deleteTodoById);
+    } catch (error) {
+        res.status(400).send({ error: error });
+    }
+};
+
 
 
 module.exports = {
     fetchAllTodos,
     createTodo,
     updateTodo,
-    getTodoById
+    getTodoById,
+    deleteTodoById
 }
