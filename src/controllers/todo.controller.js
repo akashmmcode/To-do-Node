@@ -29,10 +29,21 @@ const updateTodo= async (req, res) => {
     }
 };
 
+const getTodoById = async (req, res) => {
+    try {
+        const { id } = req.body;
+        const getTodoById = await TodoService.getTodoById(id);
+        res.send(getTodoById);
+    } catch (error) {
+        res.status(400).send({ error: error });
+    }
+};
+
 
 
 module.exports = {
     fetchAllTodos,
     createTodo,
-    updateTodo
+    updateTodo,
+    getTodoById
 }

@@ -38,5 +38,6 @@ const updateTodoById = async (id, data) => {
 module.exports = {
     getAllTodos,
     insertTodos,
-    updateTodoById
+    updateTodoById,
+    getTodoById
 }
